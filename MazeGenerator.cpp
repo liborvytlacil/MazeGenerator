@@ -2,7 +2,6 @@
 //
 
 #include "MazeGenerator.h"
-#include "RandomGenerator.h"
 #include <iostream>
 #include <stack>
 #include <set>
