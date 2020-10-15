@@ -72,7 +72,7 @@ int* generateMaze(int width, int height, int startX, int startY, RandomGenerator
 		if (!neighbours.empty()) {
 			// pick a random available neighbour, connect it to the current cell and push it to the stack
 			// to be visited in the next iteration
-			const pair<int, pair<int, int>> neighbourData = neighbours[randomGenerator.next(4) % neighbours.size()];
+			const pair<int, pair<int, int>> neighbourData = neighbours[randomGenerator.next(neighbours.size())];
 			const int direction = neighbourData.first;
 			const pair<int, int> neighbour = neighbourData.second;
 

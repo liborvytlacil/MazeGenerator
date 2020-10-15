@@ -1,6 +1,7 @@
 #pragma once
 
 #include<cmath>
+#include<ctime>
 
 class RandomGenerator {
 public:
@@ -8,6 +9,12 @@ public:
 };
 
 class StandardRandomGenerator : public RandomGenerator {
+public:
+
+	StandardRandomGenerator() {
+		srand(time(NULL));
+	}
+
 	int next(int bound) override {
 		if (bound > 0) {
 			return rand() % bound;
