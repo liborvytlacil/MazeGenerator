@@ -1,9 +1,17 @@
+/**
+* Defines code for processing command line input and printing the result to the standard output.
+*/
+
 #include "MazeGenerator.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
+/**
+* Prints a given maze to the standard output. The caller must ensure, that the passed int array indeed
+* represents a maze of the given width and height.
+*/
 void printMaze(const int* maze, int width, int height) {
 	const char wall = 'X';
 	const char space = ' ';

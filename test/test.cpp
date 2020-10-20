@@ -1,3 +1,6 @@
+/**
+* A test file used for veryfing the maze generation algorithm.
+*/
 #include "../MazeGenerator.h"
 #include "../RandomGenerator.h"
 #include <vector>
@@ -9,6 +12,11 @@ extern enum Direction;
 
 using namespace std;
 
+/**
+* Implementation of RandomGenerator that simply returns values from a given vector, one by one.
+* Each call returns the next value. Once all values have been returned, the counter is reset
+* and numbers are returned from the beginning again.
+*/
 class PredictibleRandomGenerator : public RandomGenerator {
 private:
 	vector<int> values;
@@ -26,7 +34,13 @@ public:
 	}
 };
 
+/**
+* A white-box test that relies on the implementation of the maze generation algorithm,
+* especially on how neighbours are selected using the pseudo-random generator.
+*/
 void testMazeGenerator() {
+	// see test-maze.png that shows how this looks like
+	// and in which direction this is generated
 	int* expected = new int[16]{
 		CELL_PATH_S | CELL_PATH_E,
 		CELL_PATH_W,

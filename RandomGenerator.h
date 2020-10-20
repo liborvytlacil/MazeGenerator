@@ -1,3 +1,8 @@
+/**
+* Declares very simple interface for random generators and a very simple implementation.
+* The idea here is to be able to define a test implementation with deterministic results
+* that can be used for testing the maze generation algorithm.
+*/
 #pragma once
 
 #include<cmath>
@@ -6,6 +11,7 @@
 class RandomGenerator {
 public:
 	virtual int next(int bound) = 0;
+	virtual ~RandomGenerator() { }
 };
 
 class StandardRandomGenerator : public RandomGenerator {

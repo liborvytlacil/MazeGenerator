@@ -1,6 +1,6 @@
-﻿// MazeGenerator.cpp : Defines the entry point for the application.
-//
-
+﻿/**
+* Implementation of MazeGenerator.h
+*/
 #include "MazeGenerator.h"
 #include <iostream>
 #include <stack>
@@ -8,8 +8,6 @@
 #include <vector>
 
 using namespace std;
-
-
 
 int linearize(int x, int y, int mazeWidth) {
 	return x + y * mazeWidth;
@@ -37,10 +35,12 @@ int* generateMaze(int width, int height, int startX, int startY, RandomGenerator
 
 	const size_t mazeSize = (size_t)width * height;
 	int* maze = new int[mazeSize];
+	// at the beginning, no cells are connected.
 	for (int i = 0; i < mazeSize; ++i) {
 		maze[i] = 0;
 	}
 
+	// generate paths in the maze using DFS
 	stack.push(make_pair(startX, startY));
 	while (visited.size() < mazeSize) {
 		const pair<int, int> currentCell = stack.top();
@@ -48,7 +48,7 @@ int* generateMaze(int width, int height, int startX, int startY, RandomGenerator
 		// mark as visited
 		visited.insert(currentCell);
 
-		// Create a vector of available neigbours
+		// Create a vector of neighbours, that were not yet visited
 		vector<pair<int, pair<int, int>>> neighbours;
 		const int x = currentCell.first;
 		const int y = currentCell.second;
