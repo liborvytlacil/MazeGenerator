@@ -72,6 +72,7 @@ int main(int argc, char* argv[])
 	int height = 1;
 	if (argc != 3) {
 		cout << "Usage: <executable-name> width height" << endl;
+		return 1;
 	}
 	else {
 		try {
