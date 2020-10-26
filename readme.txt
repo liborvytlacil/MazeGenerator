@@ -21,3 +21,8 @@ X     X   X   X
 XXXXX XXXXXXX X
 X             X
 XXXXXXXXXXXXXXX
+
+Build tested with
+	* Cmake >3.8 and msvc 19.27.29112 on Windows 10.
+	* Cmake >3.8 and gcc 9.3.0 on Ubuntu 20.04.1 LTS.
+
