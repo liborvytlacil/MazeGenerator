@@ -22,7 +22,19 @@ XXXXX XXXXXXX X
 X             X
 XXXXXXXXXXXXXXX
 
-Build tested with
-	* Cmake >3.8 and msvc 19.27.29112 on Windows 10.
-	* Cmake >3.8 and gcc 9.3.0 on Ubuntu 20.04.1 LTS.
+Build instructions:
+You can build the project using Cmake version >=3.8.
+
+Navigate to the project root and run
+cmake .
+
+then run
+make
+
+You can use ctest to run a provided test. After cmake was run, simply type
+ctest
+
+Build tested with with the following compilers and environments:
+	* msvc 19.27.29112 on Windows 10.
+	* gcc 9.3.0 on Ubuntu 20.04.1 LTS.
 
