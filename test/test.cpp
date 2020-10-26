@@ -8,8 +8,6 @@
 
 int* generateMaze(int width, int height, int startX, int startY, RandomGenerator &randomGenerator);
 
-extern enum Direction;
-
 using namespace std;
 
 /**
@@ -26,7 +24,7 @@ public:
 	PredictibleRandomGenerator(vector<int> values) :
 		values(values), current(0) { }
 
-	int next(int bound) override {
+	int next(size_t bound) override {
 		if (current >= values.size()) {
 			current = 0;
 		}
@@ -70,7 +68,8 @@ void testMazeGenerator() {
 		0, 0
 	};
 	
-	int* actual = generateMaze(4, 4, 1, 0, PredictibleRandomGenerator(randomVector));
+	PredictibleRandomGenerator randomGenerator = PredictibleRandomGenerator(randomVector);
+	int* actual = generateMaze(4, 4, 1, 0, randomGenerator);
 	bool success = true;
 	for (int i = 0; i < 16; ++i) {
 		if (actual[i] != expected[i]) {

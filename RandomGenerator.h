@@ -10,7 +10,7 @@
 
 class RandomGenerator {
 public:
-	virtual int next(int bound) = 0;
+	virtual int next(size_t bound) = 0;
 	virtual ~RandomGenerator() { }
 };
 
@@ -18,10 +18,10 @@ class StandardRandomGenerator : public RandomGenerator {
 public:
 
 	StandardRandomGenerator() {
-		srand(time(NULL));
+		srand(static_cast<unsigned>(time(NULL)));
 	}
 
-	int next(int bound) override {
+	int next(size_t bound) override {
 		if (bound > 0) {
 			return rand() % bound;
 		}
